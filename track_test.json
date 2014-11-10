@@ -1,0 +1,86 @@
+{
+  "wall-time": 0.01844000816345215, 
+  "dataset": "train_test", 
+  "sessions": [
+    {
+      "session-id": "00", 
+      "turns": [
+        {
+          "menu": {
+            "hyps": [
+              {
+                "score": 1.0, 
+                "slots": {
+                  "menu": "pizza"
+                }
+              }
+            ]
+          }, 
+          "material": {
+            "hyps": []
+          }, 
+          "joint": {
+            "hyps": [
+              {
+                "slots": {
+                  "menu": "pizza"
+                }, 
+                "score": 1.0
+              }
+            ]
+          }
+        }, 
+        {
+          "menu": {
+            "hyps": [
+              {
+                "score": 1.0, 
+                "slots": {
+                  "menu": "pizza"
+                }
+              }
+            ]
+          }, 
+          "material": {
+            "hyps": []
+          }, 
+          "joint": {
+            "hyps": [
+              {
+                "slots": {
+                  "menu": "pizza"
+                }, 
+                "score": 1.0
+              }
+            ]
+          }
+        }, 
+        {
+          "menu": {
+            "hyps": [
+              {
+                "score": 1.0, 
+                "slots": {
+                  "menu": "pizza"
+                }
+              }
+            ]
+          }, 
+          "material": {
+            "hyps": []
+          }, 
+          "joint": {
+            "hyps": [
+              {
+                "slots": {
+                  "menu": "pizza"
+                }, 
+                "score": 1.0
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
