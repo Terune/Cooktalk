@@ -1,4 +1,5 @@
 #! /usr/bin/python
+# -*- coding: utf-8 -*-
 import sys,os,argparse,shutil,glob,json,copy,time
 
 SLOTS = ['kind','menu','material']
@@ -37,16 +38,25 @@ def main(argv):
     
     for session in sessions:
         print "sessions=%s" %(session)
-        str= input("json형식으로 입력해주세요\n")
-        print("입력내용"+str)
+        string= raw_input("json형식으로 입력해주세요\n")
+         #print("입력내용"+str)
         
-        json.load(str)
+        session.log=json.loads(string)
         r['sessions'].append( { 'turns': [], 'session-id': session.log['session-id'], } )
         state = _InitState()        
         if (args.null == True):
             state['joint'] = { 'hyps': [], }
+        print "trun_index=0"
+        string = raw_input("턴 내용을 json형식으로 입력해주세요\n")
+
+        session.log+=json.loads(string)
+
         for turn_index,(log_turn,scratch) in enumerate(session):
             print "trun_index=%s" %(turn_index)
+            string = raw_input("턴 내용을 json형식으로 입력해주세요 \n")
+
+            session.log+=json.loads(string)
+
             if (args.null == True):
                 r['sessions'][-1]['turns'].append(state)
                 continue
