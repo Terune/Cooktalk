@@ -48,14 +48,18 @@ def main(argv):
             state['joint'] = { 'hyps': [], }
         print "trun_index=0"
         string = raw_input("턴 내용을 json형식으로 입력해주세요\n")
-
-        session.log+=json.loads(string)
-
+        #dictb=json.loads(string)
+        dicta=json.dumps(string)
+        dictb=json.loads(dicta)
+   
+        for k,v in dictb.items():
+            merge(session.log.setdefault(k, []), v)
+        print session.log
         for turn_index,(log_turn,scratch) in enumerate(session):
-            print "trun_index=%s" %(turn_index)
-            string = raw_input("턴 내용을 json형식으로 입력해주세요 \n")
+            #print "trun_index=%s" %(turn_index)
+            #string = raw_input("턴 내용을 json형식으로 입력해주세요 \n")
 
-            session.log+=json.loads(string)
+            #session.log+=json.loads(string)
 
             if (args.null == True):
                 r['sessions'][-1]['turns'].append(state)
@@ -102,6 +106,15 @@ def main(argv):
                         'slots': joint,
                         } )
                 print "  state['joint']['hyps']=%s" %(state['joint']['hyps'])
+
+            print "trun_index=%s" %(turn_index)
+            string = raw_input("턴 내용을 json형식으로 입력해주세요 \n")
+
+            dictb=json.loads(string)
+
+            for k,v in dictb.items():
+                  merge(session.log.setdefault(k, []), v)
+
         for turn in r['sessions'][-1]['turns']:
             print " trun in r =%s" %(turn)
             for slots_entry in turn.values():
@@ -129,5 +142,11 @@ if (__name__ == '__main__'):
     main(sys.argv)
 
 
-
-
+def merge(lsta, lstb):
+    for i in lstb:
+        for j in lsta:
+             if j['name'] == i['name']:
+                  j.update(i)
+                  break
+        else:
+             lsta.append(i)
