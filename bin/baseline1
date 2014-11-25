@@ -49,9 +49,25 @@ def main(argv):
         print "trun_index=0"
         string = raw_input("턴 내용을 json형식으로 입력해주세요\n")
         #dictb=json.loads(string)
-        dicta=json.dumps(string)
-        dictb=json.loads(dicta)
-   
+        dicta={'turns':[]}
+        dictb={'truns':[]}
+        dicta.append=json.dumps(string)
+        dictb.append=json.loads(dicta)
+        print dictb['turns']
+        for item in dictb:
+           print "item=%s" %(item)
+           if item['turns']:
+                 e = item['turns']
+                 for k,value in e.items():
+                         if k == "youtube":
+                              for innerk, innerv in k.iteritems():
+                                     if innerk == "source":
+                                            print innerv
+                         print e
+        for each_dict in value:
+                 for innerk, innerv in each_dict.iteritems():
+                            if innerk == "source" :
+                                    print innerv
         for k,v in dictb.items():
             merge(session.log.setdefault(k, []), v)
         print session.log
