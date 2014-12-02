@@ -1,4 +1,4 @@
-#! /usr/bin/python
+# /usr/bin/python
 # -*- coding: utf-8 -*-
 import sys,os,argparse,shutil,glob,json,copy,time
 
@@ -38,7 +38,8 @@ def main(argv):
     
     for session in sessions:
         print "sessions=%s" %(session)
-        string= raw_input("json형식으로 입력해주세요\n")
+        #string= raw_input("json형식으로 입력해주세요\n")
+        string=sys.stdin.readlines("json형식으로 입력해주세요\n")
          #print("입력내용"+str)
         
         session.log=json.loads(string)
@@ -49,11 +50,15 @@ def main(argv):
         print "trun_index=0"
         string = raw_input("턴 내용을 json형식으로 입력해주세요\n")
         #dictb=json.loads(string)
-        dicta={'turns':[]}
-        dictb={'truns':[]}
-        dicta.append=json.dumps(string)
-        dictb.append=json.loads(dicta)
-        print dictb['turns']
+        #dicta={'turns':[]}
+        dictb={'turns':[]}
+        dicta=json.dumps(string)
+        dictb['turns'].append(json.loads(dicta))
+        print "dump= %s" %(json.dumps(dictb))
+        dictc=json.dumps(dictb)
+        dictd=json.loads(dictc)
+        print "dictd=%s\n" %(dictd)
+        print dictd['turns']['output']
         for item in dictb:
            print "item=%s" %(item)
            if item['turns']:
