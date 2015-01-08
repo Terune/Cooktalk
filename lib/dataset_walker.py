@@ -45,9 +45,9 @@ class Call(object):
         self.labels_filename = labels_filename
         self.dataset = dataset
         print >>sys.stderr,applog_filename
-        #f = open(applog_filename)
-        #self.log = json.load(f)
-        #f.close()
+        f = open(applog_filename)
+        self.log = json.load(f)
+        f.close()
         if (labels_filename != None):
             f = open(labels_filename)
             self.labels = json.load(f)

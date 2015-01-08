@@ -1,4 +1,6 @@
 ﻿#! /usr/bin/python
+# -*- coding:utf-8 -*-
+
 import sys,os,argparse,shutil,glob,json,copy,time
 
 SLOTS = ['menu','material']
